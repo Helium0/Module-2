@@ -4,74 +4,62 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calculator calculator = new Calculator();
-        calculator.start();
-        String operations = calculator.getOperationFromUser();
-        System.out.println(operations);
-        String operation = scanner.nextLine();
-        int continueNumber = calculator.getNumberFromUser();
-        System.out.println(continueNumber);
-        
-         
+        System.out.println("Hello this is your personal calculator created by Patryk, press 1 to start or 0 to quit");
+        Integer number = scanner.nextInt();
+        calculator.start(number);
+        System.out.println("Goodbye");     
     
     }
     
-    public void start() {
-    System.out.println("Hello this is your personal calculator created by Patryk");
-    System.out.println("Write what do you want to do: Sum, Subtract, Multiply, Divide");
-  }
+    public void start(int number) {
+        Scanner scanner = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+        
+       while(number == 1){
+        
+        calculator.getOperationFromUser(); 
+        
+       }
+       }
+     public void quit(int number) {
+        Scanner scanner = new Scanner(System.in);
+        Calculator calculator = new Calculator();
+        
+       while(number == 0){
+        
+        break;
+       }
+       }
+    
   
   private String getOperationFromUser() {
       Scanner se = new Scanner(System.in);
+      System.out.println("Write what do you want to do: Sum, Subtract, Multiply, Divide");
       String operation = se.nextLine();
-      Calculator calculator = new Calculator();
-      
+         Calculator calculator = new Calculator(); 
       if (operation.equals("Sum")){
         int addfunction = calculator.add();
         System.out.println("Sum result is: "+addfunction);
-        
         } else if (operation.equals("Subtract")){
             int subtractFunction = calculator.subtract();
-            System.out.println("Subtract result is: "+subtractFunction);
-            
+            System.out.println("Subtract result is: "+subtractFunction);          
         } else if (operation.equals("Multiply")) {
             int multiplyFunction = calculator.multiply();
-            System.out.println("Multiply result is: "+ multiplyFunction);
-           
+            System.out.println("Multiply result is: "+ multiplyFunction);           
         } else if (operation.equals("Divide")) {
             String divideFunction = calculator.divide();
-            System.out.println(divideFunction);
-            
-    }
-     return "What do you want to do now? Type 1 to continue or 0 to quit.";
-   
-  }
-  
-  
-  private int getNumberFromUser() {
-      Scanner se = new Scanner(System.in);
-      Calculator calculator = new Calculator();
-      Integer number = se.nextInt();
-       while(number > 0){
-        String operations = calculator.getOperationFromUser();
-        System.out.println(operations);
-        if (number == 0){
-            break;
-        }
-  
-  }
-       return 0;
-  }
-  
-  private boolean isMoreThan0(int number) {
-//      Scanner se = new Scanner(System.in);
-//      String operation = se.nextLine();
-      while(number > 0){
+            System.out.println(divideFunction); 
+        } else {
+            System.out.println("Wrong command try again"); 
           
-          return true;
+        
+         
+    }
+     return "What do you want to do now? Press 1 to continue or write quit.";
+       
     
-  }
-      return false;
-  }
+  }   
+
   private int add() {
       Scanner se = new Scanner(System.in);
       System.out.println("Type first number: ");
@@ -111,6 +99,9 @@ public class Calculator {
       Integer numberTwo = se.nextInt();
     return number * numberTwo;
   }
+  
+
+  
   
 }
 
